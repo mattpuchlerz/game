@@ -1,0 +1,22 @@
+<h1>Holy Crap!</h1>
+
+<input id="button" type="submit" value="Send!" />  
+
+<!-- <script type="text/javascript" src="http://jabbify.com/side.js"></script> -->
+<script type="text/javascript" src="javascripts/jabbify.js"></script>
+<script type="text/javascript" charset="utf-8">
+  
+  OpenAjax.hub.subscribe("jabbify.*.*", function(name, results){
+    console.log(name);
+    console.log(results.data);
+  });
+  
+  window.sendJab = function(){
+    Jabbify.send("message", "create", { message: "hello world" });
+  }
+  
+  document.getElementById('button').onclick = window.sendJab;
+  
+  Jabbify.connect({ name: "Matt" }, sendJab);
+  
+</script>
