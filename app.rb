@@ -1,7 +1,5 @@
 require 'rubygems'
 require 'sinatra'
-# require 'active_support'
-# require 'active_support/core_ext/blank'
 
 
 
@@ -9,7 +7,7 @@ require 'sinatra'
 # Configuration
 # 
 
-set :jabbify_api_key, '14ebb17b8da143efbf6a18772c6a8695457b852a'
+set :jabbify_api_key, '3621a05b13564714312a53020b7852504352678f'
 
 
 
@@ -39,7 +37,7 @@ end
 
 get '/send' do
   Jabbify.send({
-    :key => '14ebb17b8da143efbf6a18772c6a8695457b852a',
+    :key => Sinatra::Application.jabbify_api_key,
     :name => "Server",
     :type => "message",
     :action => "create",
@@ -48,6 +46,9 @@ get '/send' do
 end
 
 __END__
+
+
+
 
 
 
