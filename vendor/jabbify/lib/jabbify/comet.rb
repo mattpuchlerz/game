@@ -15,20 +15,25 @@ module Jabbify
     end
     
     def deliver
-      %w[ api_key name message ].each do |attribute|
-        return false if send(attribute).nil? 
-      end
+      return false if not valid?
       
       begin
         RestClient.get 'https://jabbify.com:8443/message_push?key=123456&name=Neo&type=message&action=create&message=sweet'
-        true
+        return true
       rescue
-        false
+        return false
       end
     end
     
     def type=(type)
       @type = type.to_sym
+    end
+    
+    def valid?
+      %w[ api_key name message ].each do |attribute|
+        return false if send(attribute).nil? 
+      end
+      true
     end
     
     def self.deliver(options)

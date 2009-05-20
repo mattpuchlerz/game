@@ -64,25 +64,44 @@ describe Jabbify::Comet do
     
   end
   
+  context "determining whether it's valid to deliver" do
+    
+    it "should be able to check the validity of the attributes" do
+      @comet = Jabbify::Comet.new
+      @comet.should respond_to(:valid?)
+    end
+
+    it "should not be valid if the 'api_key' attribute is blank" do
+      @comet = Jabbify::Comet.new defaults(:api_key => nil)
+      @comet.should_not be_valid
+    end
+    
+    it "should not be valid if the 'name' attribute is blank" do
+      @comet = Jabbify::Comet.new defaults(:name => nil)
+      @comet.should_not be_valid
+    end
+  
+    it "should not be valid if the 'message' attribute is blank" do
+      @comet = Jabbify::Comet.new defaults(:message => nil)
+      @comet.should_not be_valid
+    end
+    
+    it "should be valid if all attributes are provided" do
+      @comet = Jabbify::Comet.new defaults
+      @comet.should be_valid
+    end
+    
+  end
+    
   context "delivering messages" do
     
     it "should be able to deliver messages" do
-      @comet = Jabbify::Comet.new defaults
+      @comet = Jabbify::Comet.new
       @comet.should respond_to(:deliver)
     end
     
-    it "should not deliver if the 'api_key' attribute is blank" do
+    it "should not deliver if any attributes are invalid" do
       @comet = Jabbify::Comet.new defaults(:api_key => nil)
-      @comet.deliver.should == false
-    end
-    
-    it "should not deliver if the 'name' attribute is blank" do
-      @comet = Jabbify::Comet.new defaults(:name => nil)
-      @comet.deliver.should == false
-    end
-  
-    it "should not deliver if the 'message' attribute is blank" do
-      @comet = Jabbify::Comet.new defaults(:message => nil)
       @comet.deliver.should == false
     end
     
