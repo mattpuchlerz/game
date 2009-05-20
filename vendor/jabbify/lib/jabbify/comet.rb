@@ -27,12 +27,12 @@ module Jabbify
       end
     end
     
-    def self.deliver(options)
-      new(options).deliver
-    end
-    
     def type=(type)
       @type = type.to_sym
+    end
+    
+    def self.deliver(options)
+      new(options).deliver
     end
     
   end
