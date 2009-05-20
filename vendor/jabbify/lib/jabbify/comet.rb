@@ -41,7 +41,7 @@ module Jabbify
         :name    => name,
         :to      => to,
         :type    => type 
-      }
+      }.reject { |key, val| val.nil? }
     end
     
     def valid?

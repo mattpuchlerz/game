@@ -114,6 +114,18 @@ describe Jabbify::Comet do
         }
     end
     
+    it "should not include any URI parameters that are blank" do
+      @comet = Jabbify::Comet.new defaults(:to => nil)
+      @comet.uri_params.should == 
+        { 
+          :action  => :i_am_the_action,
+          :key     => 'qwer1234qwer1234',
+          :message => 'This is the message!',
+          :name    => 'John Doe',
+          :type    => :i_am_the_type,
+        }
+    end
+    
   end
   
   context "delivering messages" do
