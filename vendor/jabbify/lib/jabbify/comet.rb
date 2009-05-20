@@ -6,6 +6,10 @@ module Jabbify
     
     attr_accessor :action, :api_key, :message, :name, :to, :type
     
+    def initialize(options = {})
+      options.each_pair { |key, val| send "#{ key }=", val }
+    end
+    
     def action=(action)
       @action = action.to_sym
     end

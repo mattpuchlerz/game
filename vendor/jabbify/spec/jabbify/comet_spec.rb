@@ -4,8 +4,8 @@ describe Jabbify::Comet do
   
   def defaults(options = {})
     { :api_key => 'qwer1234qwer1234',
-      :type    => :message,
-      :action  => :create,
+      :type    => :i_am_the_type,
+      :action  => :i_am_the_action,
       :name    => 'John Doe',
       :message => 'This is the message!',
       :to      => 'Jane Doe'
@@ -43,13 +43,23 @@ describe Jabbify::Comet do
     end
     
     it "should be able to read/write a 'message' attribute" do
-      @comet.message = 'Here is the message!'
-      @comet.message.should == 'Here is the message!'
+      @comet.message = 'This is the message!'
+      @comet.message.should == 'This is the message!'
     end
     
     it "should be able to read/write a 'to' attribute" do
       @comet.to = 'Jane Doe'
       @comet.to.should == 'Jane Doe'
+    end
+    
+    it "should be able to write any attribute via a hash passed in during initialization" do
+      @comet = Jabbify::Comet.new defaults
+      @comet.api_key.should == 'qwer1234qwer1234'
+      @comet.type.should    == :i_am_the_type
+      @comet.action.should  == :i_am_the_action
+      @comet.name.should    == 'John Doe'
+      @comet.message.should == 'This is the message!'
+      @comet.to.should      == 'Jane Doe'
     end
     
   end
