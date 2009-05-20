@@ -64,7 +64,7 @@ describe Jabbify::Comet do
     
   end
   
-  context "determining whether it's valid to deliver" do
+  context "determining the validity of the attributes" do
     
     it "should be able to check the validity of the attributes" do
       @comet = Jabbify::Comet.new
