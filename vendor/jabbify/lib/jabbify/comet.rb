@@ -16,7 +16,6 @@ module Jabbify
     
     def deliver
       return false unless valid?
-      
       begin
         RestClient.post jabbify_uri, uri_params
         true
