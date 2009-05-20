@@ -18,11 +18,15 @@ module Jabbify
       return false unless valid?
       
       begin
-        RestClient.post 'https://jabbify.com:8443/message_push', uri_params
+        RestClient.post jabbify_uri, uri_params
         true
       rescue
         false
       end
+    end
+    
+    def jabbify_uri
+      'https://jabbify.com:8443/message_push'
     end
     
     def type=(type)

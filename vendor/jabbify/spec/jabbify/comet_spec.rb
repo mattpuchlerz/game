@@ -96,6 +96,11 @@ describe Jabbify::Comet do
     
   context "constructing the Jabbify URI" do
     
+    it "should be able to get the Jabbify URI" do
+      @comet = Jabbify::Comet.new
+      URI.parse(@comet.jabbify_uri).should_not raise_error(URI::InvalidURIError)
+    end
+    
     it "should be able to get a hash of all the needed URI parameters" do
       @comet = Jabbify::Comet.new defaults
       @comet.uri_params.should == 
@@ -130,11 +135,8 @@ describe Jabbify::Comet do
     end
     
     it "should deliver if the request succeeds" do
+      RestClient.should_receive(:post).and_return('body of response')
       @comet = Jabbify::Comet.new defaults
-      RestClient.
-        should_receive(:post).
-        with('https://jabbify.com:8443/message_push', @comet.uri_params).
-        and_return('body of response')
       @comet.deliver.should == true
     end
     
