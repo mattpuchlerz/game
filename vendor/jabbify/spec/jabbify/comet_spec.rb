@@ -3,7 +3,8 @@ require File.join( File.dirname(__FILE__), *%w[ .. spec_helper ] )
 describe Jabbify::Comet do
   
   def defaults(options = {})
-    { :api_key => 'qwer1234qwer1234',
+    { 
+      :api_key => 'qwer1234qwer1234',
       :type    => :i_am_the_type,
       :action  => :i_am_the_action,
       :name    => 'John Doe',
@@ -62,6 +63,11 @@ describe Jabbify::Comet do
       @comet.to.should      == 'Jane Doe'
     end
     
+    it "should be able to read a hash of all the current attributes" do
+      @comet = Jabbify::Comet.new defaults
+      @comet.attributes.should == defaults
+    end
+    
   end
   
   context "determining the validity of the attributes" do
@@ -106,19 +112,24 @@ describe Jabbify::Comet do
     end
     
     it "should not deliver if the request fails" do
-      RestClient.should_receive(:get).and_raise(RuntimeError)
+      RestClient.should_receive(:post).and_raise(RuntimeError)
       @comet = Jabbify::Comet.new defaults
       @comet.deliver.should == false
     end
     
     it "should deliver if the request succeeds" do
-      RestClient.should_receive(:get).and_return('body of response')
+      RestClient.
+        should_receive(:post).
+        with('https://jabbify.com:8443/message_push', defaults).
+        and_return('body of response')
       @comet = Jabbify::Comet.new defaults
       @comet.deliver.should == true
     end
     
     it "should be able to handle one-off deliveries via a class method" do
-      RestClient.should_receive(:get).and_return('body of response')
+      comet = mock('Jabbify::Comet')
+      comet.should_receive(:deliver).and_return(true)
+      Jabbify::Comet.should_receive(:new).with(defaults).and_return(comet)
       Jabbify::Comet.deliver(defaults).should == true
     end
   

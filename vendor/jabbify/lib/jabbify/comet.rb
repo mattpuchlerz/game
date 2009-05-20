@@ -14,14 +14,25 @@ module Jabbify
       @action = action.to_sym
     end
     
+    def attributes
+      { 
+        :action  => action,
+        :api_key => api_key,
+        :message => message,
+        :name    => name,
+        :to      => to,
+        :type    => type 
+      }
+    end
+    
     def deliver
-      return false if not valid?
+      return false unless valid?
       
       begin
-        RestClient.get 'https://jabbify.com:8443/message_push?key=123456&name=Neo&type=message&action=create&message=sweet'
-        return true
+        RestClient.post 'https://jabbify.com:8443/message_push', attributes
+        true
       rescue
-        return false
+        false
       end
     end
     
