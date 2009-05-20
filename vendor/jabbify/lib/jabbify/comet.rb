@@ -7,22 +7,18 @@ module Jabbify
     attr_accessor :action, :api_key, :message, :name, :to, :type
     
     def initialize(options = {})
-      options.each_pair { |key, val| send "#{ key }=", val }
+      options.each_pair { |key, val| send("#{ key }=", val) }
     end
     
     def action=(action)
       @action = action.to_sym
     end
     
-    def type=(type)
-      @type = type.to_sym
-    end
-  
-    def self.deliver(options)
-      [ :api_key, :name, :message ].each do |option|
-        raise ArgumentError, "Missing the :#{ option } option" unless options[option]
+    def deliver
+      %w[ api_key name message ].each do |attribute|
+        return false if send(attribute).nil? 
       end
-
+      
       begin
         RestClient.get 'https://jabbify.com:8443/message_push?key=123456&name=Neo&type=message&action=create&message=sweet'
         true
@@ -30,6 +26,14 @@ module Jabbify
         false
       end
     end
-  
+    
+    def self.deliver(options)
+      new(options).deliver
+    end
+    
+    def type=(type)
+      @type = type.to_sym
+    end
+    
   end
 end

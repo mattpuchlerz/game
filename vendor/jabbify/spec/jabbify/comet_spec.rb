@@ -66,32 +66,39 @@ describe Jabbify::Comet do
   
   context "delivering messages" do
     
-    it do
-      Jabbify::Comet.should respond_to(:deliver)
+    it "should be able to deliver messages" do
+      @comet = Jabbify::Comet.new defaults
+      @comet.should respond_to(:deliver)
     end
     
-    it "should fail if #deliver isn't passed an options hash" do
-      lambda { Jabbify::Comet.deliver }.should raise_error(ArgumentError)
+    it "should not deliver if the 'api_key' attribute is blank" do
+      @comet = Jabbify::Comet.new defaults(:api_key => nil)
+      @comet.deliver.should == false
+    end
+    
+    it "should not deliver if the 'name' attribute is blank" do
+      @comet = Jabbify::Comet.new defaults(:name => nil)
+      @comet.deliver.should == false
     end
   
-    it "should fail if #deliver is passed a nil :api_key option" do
-      lambda { Jabbify::Comet.deliver defaults(:api_key => nil) }.should raise_error(ArgumentError)
+    it "should not deliver if the 'message' attribute is blank" do
+      @comet = Jabbify::Comet.new defaults(:message => nil)
+      @comet.deliver.should == false
     end
     
-    it "should fail if #deliver is passed a nil :name option" do
-      lambda { Jabbify::Comet.deliver defaults(:name => nil) }.should raise_error(ArgumentError)      
-    end
-  
-    it "should fail if #deliver is passed a nil :message option" do
-      lambda { Jabbify::Comet.deliver defaults(:message => nil) }.should raise_error(ArgumentError)      
-    end
-    
-    it "should not deliver to Jabbify if the request fails" do
+    it "should not deliver if the request fails" do
       RestClient.should_receive(:get).and_raise(RuntimeError)
-      Jabbify::Comet.deliver(defaults).should == false
+      @comet = Jabbify::Comet.new defaults
+      @comet.deliver.should == false
     end
     
-    it "should deliver to Jabbify if the request succeeds" do
+    it "should deliver if the request succeeds" do
+      RestClient.should_receive(:get).and_return('body of response')
+      @comet = Jabbify::Comet.new defaults
+      @comet.deliver.should == true
+    end
+    
+    it "should be able to handle one-off deliveries via a class method" do
       RestClient.should_receive(:get).and_return('body of response')
       Jabbify::Comet.deliver(defaults).should == true
     end
