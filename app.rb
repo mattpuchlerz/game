@@ -15,13 +15,7 @@ set :jabbify_api_key, '3621a05b13564714312a53020b7852504352678f'
 # Load lib files
 # 
 
-def load_or_require(file)
-  (Sinatra::Application.environment == :development) ? load(file) : require(file)
-end
-
-%w[ lib ].each do |dir| 
-  Dir.glob("#{dir}/**/*.rb").sort.each { |file| load_or_require file }
-end
+require File.join( File.dirname(__FILE__), *%w[ vendor jabbify lib jabbify ] )
 
 
 
@@ -36,13 +30,13 @@ get '/' do
 end
 
 get '/send' do
-  Jabbify.send({
-    :key => Sinatra::Application.jabbify_api_key,
-    :name => "Server",
-    :type => "message",
-    :action => "create",
+  Jabbify::Comet.deliver(
+    :api_key => Sinatra::Application.jabbify_api_key,
+    :name    => "Server",
+    :type    => "message",
+    :action  => "create",
     :message => "yo yo yo from tha serva"
-  })
+  )
 end
 
 __END__
