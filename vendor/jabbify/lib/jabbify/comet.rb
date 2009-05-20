@@ -3,6 +3,16 @@ require 'restclient' # http://github.com/adamwiggins/rest-client
 
 module Jabbify
   class Comet
+    
+    attr_accessor :action, :api_key, :message, :name, :to, :type
+    
+    def action=(action)
+      @action = action.to_sym
+    end
+    
+    def type=(type)
+      @type = type.to_sym
+    end
   
     def self.deliver(options)
       [ :api_key, :name, :message ].each do |option|

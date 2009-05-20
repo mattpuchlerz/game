@@ -12,6 +12,48 @@ describe Jabbify::Comet do
     }.merge(options)
   end
   
+  context "reading and writing attributes" do
+    
+    before(:each) do
+      @comet = Jabbify::Comet.new
+    end
+    
+    it "should be able to read/write an 'api_key' attribute" do
+      @comet.api_key = 'qwer1234qwer1234'
+      @comet.api_key.should == 'qwer1234qwer1234'
+    end
+    
+    it "should be able to read/write a 'type' attribute as a symbol" do
+      @comet.type = :i_am_the_type
+      @comet.type.should == :i_am_the_type
+      @comet.type = 'i_am_the_type'
+      @comet.type.should == :i_am_the_type
+    end
+    
+    it "should be able to read/write an 'action' attribute as a symbol" do
+      @comet.action = :i_am_the_action
+      @comet.action.should == :i_am_the_action
+      @comet.action = 'i_am_the_action'
+      @comet.action.should == :i_am_the_action
+    end
+    
+    it "should be able to read/write a 'name' attribute" do
+      @comet.name = 'John Doe'
+      @comet.name.should == 'John Doe'
+    end
+    
+    it "should be able to read/write a 'message' attribute" do
+      @comet.message = 'Here is the message!'
+      @comet.message.should == 'Here is the message!'
+    end
+    
+    it "should be able to read/write a 'to' attribute" do
+      @comet.to = 'Jane Doe'
+      @comet.to.should == 'Jane Doe'
+    end
+    
+  end
+  
   context "delivering messages" do
     
     it do
