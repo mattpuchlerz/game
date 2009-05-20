@@ -4,12 +4,12 @@ describe Jabbify::Comet do
   
   def defaults(options = {})
     { 
-      :api_key => 'qwer1234qwer1234',
-      :type    => :i_am_the_type,
       :action  => :i_am_the_action,
-      :name    => 'John Doe',
+      :api_key => 'qwer1234qwer1234',
       :message => 'This is the message!',
-      :to      => 'Jane Doe'
+      :name    => 'John Doe',
+      :to      => 'Jane Doe',
+      :type    => :i_am_the_type,
     }.merge(options)
   end
   
@@ -63,11 +63,6 @@ describe Jabbify::Comet do
       @comet.to.should      == 'Jane Doe'
     end
     
-    it "should be able to read a hash of all the current attributes" do
-      @comet = Jabbify::Comet.new defaults
-      @comet.attributes.should == defaults
-    end
-    
   end
   
   context "determining the validity of the attributes" do
@@ -99,6 +94,23 @@ describe Jabbify::Comet do
     
   end
     
+  context "constructing the Jabbify URI" do
+    
+    it "should be able to get a hash of all the needed URI parameters" do
+      @comet = Jabbify::Comet.new defaults
+      @comet.uri_params.should == 
+        { 
+          :action  => :i_am_the_action,
+          :key     => 'qwer1234qwer1234',
+          :message => 'This is the message!',
+          :name    => 'John Doe',
+          :to      => 'Jane Doe',
+          :type    => :i_am_the_type,
+        }
+    end
+    
+  end
+  
   context "delivering messages" do
     
     it "should be able to deliver messages" do
@@ -118,11 +130,11 @@ describe Jabbify::Comet do
     end
     
     it "should deliver if the request succeeds" do
+      @comet = Jabbify::Comet.new defaults
       RestClient.
         should_receive(:post).
-        with('https://jabbify.com:8443/message_push', defaults).
+        with('https://jabbify.com:8443/message_push', @comet.uri_params).
         and_return('body of response')
-      @comet = Jabbify::Comet.new defaults
       @comet.deliver.should == true
     end
     

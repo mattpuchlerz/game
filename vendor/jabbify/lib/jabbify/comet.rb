@@ -14,22 +14,11 @@ module Jabbify
       @action = action.to_sym
     end
     
-    def attributes
-      { 
-        :action  => action,
-        :api_key => api_key,
-        :message => message,
-        :name    => name,
-        :to      => to,
-        :type    => type 
-      }
-    end
-    
     def deliver
       return false unless valid?
       
       begin
-        RestClient.post 'https://jabbify.com:8443/message_push', attributes
+        RestClient.post 'https://jabbify.com:8443/message_push', uri_params
         true
       rescue
         false
@@ -38,6 +27,17 @@ module Jabbify
     
     def type=(type)
       @type = type.to_sym
+    end
+    
+    def uri_params
+      { 
+        :action  => action,
+        :key     => api_key,
+        :message => message,
+        :name    => name,
+        :to      => to,
+        :type    => type 
+      }
     end
     
     def valid?
