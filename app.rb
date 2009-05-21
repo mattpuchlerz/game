@@ -1,5 +1,6 @@
 require 'rubygems'
 require 'sinatra'
+require 'jabbify'
 
 
 
@@ -8,14 +9,6 @@ require 'sinatra'
 # 
 
 set :jabbify_api_key, '3621a05b13564714312a53020b7852504352678f'
-
-
-
-# 
-# Load lib files
-# 
-
-require File.join( File.dirname(__FILE__), *%w[ vendor jabbify lib jabbify ] )
 
 
 
