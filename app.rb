@@ -18,6 +18,10 @@ set :jabbify_api_key, '3621a05b13564714312a53020b7852504352678f'
 
 use_in_file_templates!
 
+get '/' do
+  erb :index
+end
+
 get '/jabbify' do
   erb :jabbify
 end
@@ -45,7 +49,7 @@ __END__
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 
   <head>
-  	<title>Game!</title>
+  	<title>DodgeBomb!</title>
   	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>	
   </head>
 
@@ -59,12 +63,24 @@ __END__
 
 
 
+@@index
+
+<div id="about">
+	<h1>DodgeBomb!</h1>
+	<p>A simple, addicting game where you dodge&hellip; bombs! This exploration into Javascript gaming was created by <a href="http://matt.puchlerz.com">Matt Puchlerz</a>.</p>
+</div>
+
+<script type="text/javascript" src="javascripts/mootools-1.2.2-core-yc.js"></script>
+<script type="text/javascript" src="javascripts/application.js"></script>
+
+
+
 @@jabbify
 
-<h1>Game!</h1>
+<h1>Jabbify Test</h1>
 
 <input id="button" type="submit" value="Send!" />  
 
 <!-- <script type="text/javascript" src="http://jabbify.com/side.js"></script> -->
 <script type="text/javascript" src="javascripts/jabbify.js"></script>
-<script type="text/javascript" src="javascripts/main.js"></script>
+<script type="text/javascript" src="javascripts/jabbify_test.js"></script>
