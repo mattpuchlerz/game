@@ -5,6 +5,11 @@ var Dodgebomb = new Class({
 	initialize: function(options) {
 		// this.setOptions(options);
 		this.setupViewport();
+		this.setupPlayer();
+	},
+	
+	setupPlayer: function() {
+		this.player = new Dodgebomb.Player();
 	},
 	
 	setupViewport: function() {

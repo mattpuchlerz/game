@@ -36,3 +36,12 @@ a:hover {
 	top: 42px;
 	width: 640px;
 }
+
+#player {
+	background: green;
+	bottom: 21px;
+	height: 5px;
+	left: 21px;
+	position: absolute;
+	width: 100px;
+}
