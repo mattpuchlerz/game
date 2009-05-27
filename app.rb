@@ -18,8 +18,8 @@ set :jabbify_api_key, '3621a05b13564714312a53020b7852504352678f'
 
 use_in_file_templates!
 
-get '/' do
-  erb :index
+get '/jabbify' do
+  erb :jabbify
 end
 
 get '/send' do
@@ -59,7 +59,7 @@ __END__
 
 
 
-@@index
+@@jabbify
 
 <h1>Game!</h1>
 
