@@ -26,8 +26,6 @@ get '/send' do
   Jabbify::Comet.deliver(
     :api_key => Sinatra::Application.jabbify_api_key,
     :name    => "Server",
-    :type    => "message",
-    :action  => "create",
     :message => "yo yo yo from tha serva"
   )
 end
