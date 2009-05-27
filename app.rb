@@ -49,8 +49,12 @@ __END__
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 
   <head>
+    
   	<title>DodgeBomb!</title>
-  	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>	
+  	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  	
+  	<link rel="stylesheet" href="/stylesheets/dodgebomb.css" type="text/css" media="screen" />	
+  	
   </head>
 
   <body>
@@ -67,10 +71,11 @@ __END__
 
 <div id="about">
 	<h1>DodgeBomb!</h1>
-	<p>A simple, addicting game where you dodge&hellip; bombs! This exploration into Javascript gaming was created by <a href="http://matt.puchlerz.com">Matt Puchlerz</a>.</p>
+	<p>A simple, addicting game where you dodge&hellip; bombs! This exploration into Javascript gaming was created by <a href="http://matt.puchlerz.com">Matt&nbsp;Puchlerz</a>.</p>
 </div>
 
-<script type="text/javascript" src="javascripts/mootools-1.2.2-core-yc.js"></script>
+<script type="text/javascript" src="javascripts/mootools/mootools-1.2.2-core-yc.js"></script>
+<script type="text/javascript" src="javascripts/dodgebomb/dodgebomb.js"></script>
 <script type="text/javascript" src="javascripts/application.js"></script>
 
 
@@ -82,5 +87,5 @@ __END__
 <input id="button" type="submit" value="Send!" />  
 
 <!-- <script type="text/javascript" src="http://jabbify.com/side.js"></script> -->
-<script type="text/javascript" src="javascripts/jabbify.js"></script>
-<script type="text/javascript" src="javascripts/jabbify_test.js"></script>
+<script type="text/javascript" src="javascripts/jabbify/jabbify.js"></script>
+<script type="text/javascript" src="javascripts/jabbify/jabbify_test.js"></script>

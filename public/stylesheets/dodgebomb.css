@@ -1,0 +1,38 @@
+* {
+	margin: 0;
+	padding: 0;
+}
+
+body {
+	background: #222;
+	color: #ddd;
+	font: 15px/1.4 "Lucida Grande", "Trebuchet MS", sans-serif;
+}
+
+a {
+	color: red;
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+#about {
+	background: #333;
+	left: 21px;
+	padding: 42px 21px 21px;
+	position: absolute;
+	width: 294px;
+}
+
+#viewport {
+	background: #4c9ae5;
+	border: 5px solid red;
+	height: 360px;
+	left: 378px;
+	position: absolute;
+  overflow: hidden;
+	top: 42px;
+	width: 640px;
+}
