@@ -1,5 +1,5 @@
 window.addEvent('domready',function(){
 
-	window.dodgebomb = new Dodgebomb();
+  window.dodgebomb = new Dodgebomb();
 
 });
