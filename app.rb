@@ -53,7 +53,7 @@ __END__
     <title>DodgeBomb!</title>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <link rel="stylesheet" href="/dodgebomb/stylesheets/dodgebomb.css" type="text/css" media="screen" />  
+    <link rel="stylesheet" href="/stylesheets/application.css" type="text/css" media="screen" />  
     
   </head>
 
