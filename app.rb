@@ -74,10 +74,12 @@ __END__
   <p>A simple, addicting game where you dodge&hellip; bombs! This exploration into Javascript gaming was created by <a href="http://matt.puchlerz.com">Matt&nbsp;Puchlerz</a>.</p>
 </div>
 
-<script type="text/javascript" src="/javascripts/mootools/mootools-1.2.1-core-yc.js"></script>
-<script type="text/javascript" src="/javascripts/mootools/mootools-1.2-more-yc.js"></script>
-<script type="text/javascript" src="/dodgebomb/javascripts/dodgebomb.js"></script>
-<script type="text/javascript" src="/javascripts/application.js"></script>
+<script type="text/javascript" src="javascripts/mootools/mootools-1.2.1-core-yc.js"></script>
+<script type="text/javascript" src="javascripts/mootools/mootools-1.2-more-yc.js"></script>
+<script type="text/javascript" src="javascripts/dodgebomb/dodgebomb.js"></script>
+<!-- <script type="text/javascript" src="javascripts/dodgebomb/player.js"></script> -->
+<!-- <script type="text/javascript" src="javascripts/dodgebomb/viewport.js"></script> -->
+<script type="text/javascript" src="javascripts/application.js"></script>
 
 
 
