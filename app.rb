@@ -44,17 +44,17 @@ __END__
 @@layout
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 
   <head>
     
-  	<title>DodgeBomb!</title>
-  	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-  	
-  	<link rel="stylesheet" href="/dodgebomb/stylesheets/dodgebomb.css" type="text/css" media="screen" />	
-  	
+    <title>DodgeBomb!</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <link rel="stylesheet" href="/dodgebomb/stylesheets/dodgebomb.css" type="text/css" media="screen" />  
+    
   </head>
 
   <body>
@@ -70,8 +70,8 @@ __END__
 @@index
 
 <div id="about">
-	<h1>DodgeBomb!</h1>
-	<p>A simple, addicting game where you dodge&hellip; bombs! This exploration into Javascript gaming was created by <a href="http://matt.puchlerz.com">Matt&nbsp;Puchlerz</a>.</p>
+  <h1>DodgeBomb!</h1>
+  <p>A simple, addicting game where you dodge&hellip; bombs! This exploration into Javascript gaming was created by <a href="http://matt.puchlerz.com">Matt&nbsp;Puchlerz</a>.</p>
 </div>
 
 <script type="text/javascript" src="/javascripts/mootools/mootools-1.2.1-core-yc.js"></script>
@@ -88,5 +88,5 @@ __END__
 <input id="button" type="submit" value="Send!" />  
 
 <!-- <script type="text/javascript" src="http://jabbify.com/side.js"></script> -->
-<script type="text/javascript" src="javascripts/jabbify/jabbify.js"></script>
-<script type="text/javascript" src="javascripts/jabbify/jabbify_test.js"></script>
+<script type="text/javascript" src="/javascripts/jabbify/jabbify.js"></script>
+<script type="text/javascript" src="/javascripts/jabbify/jabbify_test.js"></script>
