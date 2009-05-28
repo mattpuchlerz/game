@@ -13,8 +13,7 @@ var Dodgebomb = new Class({
   },
 
   setupViewport: function() {
-    this.viewport = new Element('div', { id: 'viewport' });
-    this.viewport.inject(document.body);
+    this.viewport = new Dodgebomb.Viewport();
   }
 
 });

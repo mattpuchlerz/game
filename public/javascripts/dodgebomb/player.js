@@ -1,10 +1,10 @@
 Dodgebomb.Player = new Class({
 
   initialize: function() {
-    this.setupPlayer();
+    this.setupDom();
   },
 
-  setupPlayer: function() {
+  setupDom: function() {
     this.player = new Element('div', { id: 'player' });
     this.player.inject($('viewport'));
   }
