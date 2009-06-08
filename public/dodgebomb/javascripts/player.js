@@ -6,7 +6,7 @@ Dodgebomb.Player = new Class({
 
   setupDom: function() {
     this.element = new Element('div', { id: 'player' });
-    this.element.inject($('viewport'));
+    this.element.inject(Dodgebomb.Singleton.viewport.element);
   }
 
 });

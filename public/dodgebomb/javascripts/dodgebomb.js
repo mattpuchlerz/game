@@ -22,6 +22,7 @@ var Dodgebomb = new Class({
   Implements: [Options],
   
   assets: [
+    'javascripts/singleton.js', 
     'javascripts/player.js', 
     'javascripts/viewport.js',
     'stylesheets/dodgebomb.css'
@@ -49,7 +50,7 @@ var Dodgebomb = new Class({
       else
         assetType = 'image';
 
-      Dodgebomb.log('Asset --- ' + asset);
+      Dodgebomb.log('Asset ... ' + asset);
       new Asset[assetType](this.options.path + asset, {
         onload: function() {
           Dodgebomb.log('Asset +++ ' + asset);
@@ -67,11 +68,11 @@ var Dodgebomb = new Class({
 	},
 	
 	setupPlayer: function() {
-    this.player = new Dodgebomb.Player();
+    Dodgebomb.Singleton.player = new Dodgebomb.Player();
   },
 
   setupViewport: function() {
-    this.viewport = new Dodgebomb.Viewport();
+    Dodgebomb.Singleton.viewport = new Dodgebomb.Viewport();
   }
 
 });
