@@ -6,7 +6,7 @@ Dodgebomb.Viewport = new Class({
 
   setupDom: function() {
     this.element = new Element('div', { id: 'viewport' });
-    this.element.inject(document.body);
+    this.element.inject(Dodgebomb.Singleton.element);
   }
 
 });

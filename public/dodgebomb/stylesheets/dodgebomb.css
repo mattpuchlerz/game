@@ -1,4 +1,4 @@
-#viewport {
+#dodgebomb #viewport {
   background: #4c9ae5;
   border: 5px solid red;
   height: 360px;
@@ -9,7 +9,7 @@
   width: 640px;
 }
 
-#player {
+#dodgebomb #player {
   background: green;
   bottom: 21px;
   height: 5px;

@@ -63,6 +63,8 @@ var Dodgebomb = new Class({
   },
 	
 	setup: function() {
+	  Dodgebomb.Singleton.element = new Element('div', { id: 'dodgebomb' }).inject(document.body);
+	  
 	  this.setupViewport();
     this.setupPlayer();
 	},
