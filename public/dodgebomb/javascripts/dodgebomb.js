@@ -1,11 +1,13 @@
 Asset.extend({
 
   css: function(source, properties) {
+    var load = properties.onload || $empty;
+  	delete properties.onload;
+    
   	var tag = new Element('link', $merge({
   		'rel': 'stylesheet', 'media': 'screen', 'type': 'text/css', 'href': source
   	}, properties)).inject(document.head);
   	
-  	var load = properties.onload || $empty;
   	load.bind(tag)();
 		
 		return tag;
