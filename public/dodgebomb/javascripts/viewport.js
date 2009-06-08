@@ -5,8 +5,8 @@ Dodgebomb.Viewport = new Class({
   },
 
   setupDom: function() {
-    this.player = new Element('div', { id: 'viewport' });
-    this.player.inject(document.body);
+    this.element = new Element('div', { id: 'viewport' });
+    this.element.inject(document.body);
   }
 
 });
