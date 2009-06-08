@@ -49,10 +49,10 @@ var Dodgebomb = new Class({
       else
         assetType = 'image';
 
-      Dodgebomb.log('Loading asset: ' + asset);
+      Dodgebomb.log('Asset --- ' + asset);
       new Asset[assetType](this.options.path + asset, {
         onload: function() {
-          Dodgebomb.log(' Loaded asset: ' + asset);
+          Dodgebomb.log('Asset +++ ' + asset);
           loadedAssets++;
           if (loadedAssets == this.assets.length) this.setup();
         }.bind(this)
@@ -76,6 +76,8 @@ var Dodgebomb = new Class({
 
 });
 
-Dodgebomb.log = function(variable) {
-  console.log(variable);
+
+
+Dodgebomb.log = function(obj) {
+	if (console && console.log) console.log(obj);
 }
