@@ -28,14 +28,19 @@ html {
 
 body {
 	font: 11px/1.5 Lucida Grande, Helvetica, Arial, sans-serif;
-	background: #F3F1F1;
 	color: #41464D;
 }
 
-body, #container {
-	width: 100%;
+body, #jsspec_container {
+	background: #F3F1F1;
 	height: 100%;
 	overflow: hidden;
+	width: 100%;
+}
+
+#jsspec_container {
+  position: absolute;
+  z-index: 9999;
 }
 
 a {
