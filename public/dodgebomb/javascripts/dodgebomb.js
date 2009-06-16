@@ -1,3 +1,5 @@
+Assets.implement({ assetsPath: '/dodgebomb/' });
+
 var Dodgebomb = new Class({	
 
   Implements: Assets,
@@ -9,8 +11,6 @@ var Dodgebomb = new Class({
     'stylesheets/dodgebomb.css'
   ],
   
-  assetsPath: '/dodgebomb/',
-
   initialize: function(options) {
     this.loadAssets();
   },
