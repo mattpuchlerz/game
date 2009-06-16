@@ -76,6 +76,7 @@ __END__
 
 <script type="text/javascript" src="/javascripts/mootools/mootools-1.2.2-core-yc.js"></script>
 <script type="text/javascript" src="/javascripts/mootools/mootools-1.2.2.2-more-yc.js"></script>
+<script type="text/javascript" src="/javascripts/mattpuchlerz/assets.js"></script>
 <script type="text/javascript" src="/dodgebomb/javascripts/dodgebomb.js"></script>
 <script type="text/javascript" src="/javascripts/application.js"></script>
 
