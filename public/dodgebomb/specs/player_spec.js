@@ -15,6 +15,10 @@ describe('DodgeBomb.Player', {
   'should have a main element': function() {
     value_of($type(player.element)).should_be('element');
     value_of(player.element.getParent()).should_be(Dodgebomb.Singleton.viewport.element);
+  },
+  
+  'should have an id of "player" on the element': function() {
+    value_of(player.element.getProperty('id')).should_be('player');
   }
     
 });
