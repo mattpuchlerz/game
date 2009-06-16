@@ -53,7 +53,11 @@ __END__
     <title>DodgeBomb!</title>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <link rel="stylesheet" href="/stylesheets/application.css" type="text/css" media="screen" />  
+    <link rel="stylesheet" href="/stylesheets/application.css" type="text/css" media="screen" />
+    
+    <% @javascripts.each do |javascript| %>
+    <script type="text/javascript" src="<%= javascript %>"></script>
+    <% end if @javascripts %>
     
   </head>
 
@@ -74,11 +78,15 @@ __END__
   <p>A simple, addicting game where you dodge&hellip; bombs! This exploration into Javascript gaming was created by <a href="http://matt.puchlerz.com">Matt&nbsp;Puchlerz</a>.</p>
 </div>
 
-<script type="text/javascript" src="/javascripts/mootools/mootools-1.2.2-core-yc.js"></script>
-<script type="text/javascript" src="/javascripts/mootools/mootools-1.2.2.2-more-yc.js"></script>
-<script type="text/javascript" src="/javascripts/mattpuchlerz/assets.js"></script>
-<script type="text/javascript" src="/dodgebomb/javascripts/dodgebomb.js"></script>
-<script type="text/javascript" src="/javascripts/application.js"></script>
+<% 
+@javascripts = %w[
+  /javascripts/mootools/mootools-1.2.2-core-yc.js
+  /javascripts/mootools/mootools-1.2.2.2-more-yc.js
+  /javascripts/mattpuchlerz/assets.js
+  /dodgebomb/javascripts/dodgebomb.js
+  /javascripts/application.js
+]
+%>
 
 
 
