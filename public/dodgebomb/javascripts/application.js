@@ -1,6 +1,8 @@
 Assets.implement({ assetsPath: '/dodgebomb/' });
 
-var Dodgebomb = new Class({	
+if (!$defined(Dodgebomb)) var Dodgebomb = {};
+
+Dodgebomb.Application = new Class({	
 
   Implements: Assets,
   

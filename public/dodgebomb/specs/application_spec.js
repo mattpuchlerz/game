@@ -1,9 +1,9 @@
 var dodgebomb;
 
-describe('DodgeBomb', {
+describe('DodgeBomb.Application', {
   
   'before all': function() {
-    dodgebomb = new Dodgebomb();
+    dodgebomb = new Dodgebomb.Application();
   },
   
   'should have a main element accessible via the singleton': function() {

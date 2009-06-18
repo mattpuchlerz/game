@@ -113,7 +113,7 @@ __END__
 		<script type="text/javascript" src="/js_spec/javascripts/diff_match_patch.js"></script>
 
 		<% @javascripts.each do |javascript| %>
-		<script type="text/javascript" src="<%= javascript %>?<%= Time.now.to_i %>"></script>
+		<script type="text/javascript" src="<%= javascript %>?<%= Time.now.to_i %>=<%= Time.now.to_i %>"></script>
 		<% end %>
 		
 	</head>
@@ -136,7 +136,7 @@ __END__
   /javascripts/mootools/mootools-1.2.2-core-yc.js
   /javascripts/mootools/mootools-1.2.2.2-more-yc.js
   /javascripts/mattpuchlerz/assets.js
-  /dodgebomb/javascripts/dodgebomb.js
+  /dodgebomb/javascripts/application.js
   /javascripts/application.js
 ]
 %>

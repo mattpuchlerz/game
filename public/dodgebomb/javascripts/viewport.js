@@ -1,3 +1,5 @@
+if (!$defined(Dodgebomb)) var Dodgebomb = {};
+
 Dodgebomb.Viewport = new Class({
 
   initialize: function() {

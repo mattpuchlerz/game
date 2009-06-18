@@ -19,6 +19,16 @@ describe('DodgeBomb.Player', {
   
   'should have an id of "player" on the element': function() {
     value_of(player.element.getProperty('id')).should_be('player');
+  },
+  
+  'should be able to get the current location on the x-axis': function() {
+    value_of(player.x).should_be(0);
+  },
+  
+  'should be able to reposition along its x-axis': function() {
+    player.moveTo(75);
+    value_of(player.x).should_be(75);
+    value_of(player.element.get('left')).should_be('75%');
   }
-    
+  
 });
