@@ -107,10 +107,10 @@ __END__
 		<title>DodgeBomb Specs</title>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
 		
-		<link rel="stylesheet" type="text/css" media="screen" href="/dodgebomb/specs/Assets/Styles/Specs.css" />
+		<link rel="stylesheet" type="text/css" media="screen" href="/jsspec/Styles/Specs.css" />
 		
-		<script type="text/javascript" src="/dodgebomb/specs/Assets/Scripts/JSSpec.js"></script>
-		<script type="text/javascript" src="/dodgebomb/specs/Assets/Scripts/DiffMatchPatch.js"></script>
+		<script type="text/javascript" src="/jsspec/Scripts/JSSpec.js"></script>
+		<script type="text/javascript" src="/jsspec/Scripts/DiffMatchPatch.js"></script>
 
 		<% @javascripts.each do |javascript| %>
 		<script type="text/javascript" src="<%= javascript %>"></script>
