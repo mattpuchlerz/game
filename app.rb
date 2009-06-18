@@ -8,7 +8,24 @@ require 'jabbify'
 # Configuration
 # 
 
+set :root, File.expand_path( File.dirname(__FILE__) )
+
 set :jabbify_api_key, '3621a05b13564714312a53020b7852504352678f'
+
+
+
+# 
+# Helpers
+# 
+
+helpers do
+  
+  def javascript_files_in(path)
+    scripts = Dir.glob( Sinatra::Application.public + path + '/*.js' )
+    scripts.map { |s| s.sub( Sinatra::Application.public, '' ) }
+  end
+  
+end
 
 
 
@@ -32,6 +49,14 @@ get '/send' do
     :name    => "Server",
     :message => "yo yo yo from tha serva"
   )
+end
+
+get '/dodgebomb/specs' do
+  @javascripts  = javascript_files_in '/javascripts/mootools'
+	@javascripts += javascript_files_in '/javascripts/mattpuchlerz'
+	@javascripts += javascript_files_in '/dodgebomb/javascripts'
+	@javascripts += javascript_files_in '/dodgebomb/specs'
+  erb :dodgebomb_specs, :layout => false
 end
 
 __END__
@@ -66,6 +91,34 @@ __END__
     <%= yield %>
     
   </body>
+
+</html>
+
+
+
+@@dodgebomb_specs
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+
+	<head>
+		
+		<title>DodgeBomb Specs</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+		
+		<link rel="stylesheet" type="text/css" media="screen" href="/dodgebomb/specs/Assets/Styles/Specs.css" />
+		
+		<script type="text/javascript" src="/dodgebomb/specs/Assets/Scripts/JSSpec.js"></script>
+		<script type="text/javascript" src="/dodgebomb/specs/Assets/Scripts/DiffMatchPatch.js"></script>
+
+		<% @javascripts.each do |javascript| %>
+		<script type="text/javascript" src="<%= javascript %>"></script>
+		<% end %>
+		
+	</head>
+
+	<body></body>
 
 </html>
 
