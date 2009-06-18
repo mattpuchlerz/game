@@ -113,7 +113,7 @@ __END__
 		<script type="text/javascript" src="/js_spec/javascripts/diff_match_patch.js"></script>
 
 		<% @javascripts.each do |javascript| %>
-		<script type="text/javascript" src="<%= javascript %>"></script>
+		<script type="text/javascript" src="<%= javascript %>?<%= Time.now.to_i %>"></script>
 		<% end %>
 		
 	</head>
