@@ -28,7 +28,7 @@ describe('DodgeBomb.Player', {
   'should be able to reposition along its x-axis': function() {
     player.moveTo(75);
     value_of(player.x).should_be(75);
-    value_of(player.element.get('left')).should_be('75%');
+    value_of(player.element.getStyle('left')).should_be('75%');
   }
   
 });
