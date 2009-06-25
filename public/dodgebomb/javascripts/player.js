@@ -13,6 +13,7 @@ Dodgebomb.Player = new Class({
       'left': percentage + '%',
       'margin-left': this.element.getStyle('width').toInt() * (percentage * -0.01) + 'px'
     });
+    return this;
   },
   
   setupDom: function() {
