@@ -29,6 +29,18 @@ describe('DodgeBomb.Player', {
     player.moveTo(75);
     value_of(player.x).should_be(75);
     value_of(player.element.getStyle('left')).should_be('75%');
+  },
+  
+  'should compensate for the players width when setting its x-position': function() {
+    // Mock a few consistent values
+    // var viewport = new Dodgebomb.Viewport();
+    // viewport.element.setStyle('width', '1000px');
+    player.element.setStyle('width', '100px');
+    
+    player.moveTo(0);
+    value_of( player.element.getStyle('margin-left').toInt() ).should_be(0)
+    player.moveTo(75);
+    value_of( player.element.getStyle('margin-left') ).should_be('-75px');
   }
   
 });
