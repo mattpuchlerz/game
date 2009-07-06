@@ -17,6 +17,10 @@ describe('DodgeBomb.Viewport', {
   
   'should have an id of "viewport" on the element': function() {
     value_of(viewport.element.getProperty('id')).should_be('viewport');
+  },
+  
+  'should tell the player to move while the mouse pointer is hovering over it': function() {
+    // how do I test for this!?
   }
-    
+      
 });
