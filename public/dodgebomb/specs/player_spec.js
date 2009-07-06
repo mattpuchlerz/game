@@ -33,8 +33,6 @@ describe('DodgeBomb.Player', {
   
   'should compensate for the players width when setting its x-position': function() {
     // Mock a few consistent values
-    // var viewport = new Dodgebomb.Viewport();
-    // viewport.element.setStyle('width', '1000px');
     player.element.setStyle('width', '100px');
     
     player.moveTo(0);
