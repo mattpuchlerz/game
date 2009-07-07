@@ -11,16 +11,38 @@ describe('DodgeBomb.Viewport', {
   },
   
   'should have a main element': function() {
-    value_of($type(viewport.element)).should_be('element');
-    value_of(viewport.element.getParent()).should_be(Dodgebomb.Singleton.element);
+    value_of( $type(viewport.element) ).should_be('element');
+    value_of( viewport.element.getParent() ).should_be(Dodgebomb.Singleton.element);
   },
   
   'should have an id of "viewport" on the element': function() {
-    value_of(viewport.element.getProperty('id')).should_be('viewport');
+    value_of( viewport.element.getProperty('id') ).should_be('viewport');
   },
   
-  'should tell the player to move while the mouse pointer is hovering over it': function() {
-    // how do I test for this!?
+  'should be able to get the mouse pointer position relative to the viewport': function() {
+    // Mock a event object
+    var event = {
+      page: {
+        x: 550,
+        y: 260
+      }
+    };
+    
+    // Mock the viewport's position and size on screen
+    viewport.element.setStyles({
+      height: '300px',
+      left: '100px',
+      position: 'fixed',
+      top: '50px',
+      width: '600px'
+    });
+    
+    value_of( viewport.getMousePosition(event) ).should_be({
+      x: 450,
+      y: 210,
+      xPercentage: 75,
+      yPercentage: 70
+    });
   }
       
 });

@@ -26,9 +26,19 @@ describe('DodgeBomb.Player', {
   },
   
   'should be able to reposition along its x-axis': function() {
-    value_of(player.moveTo(75)).should_be(player);
-    value_of(player.x).should_be(75);
-    value_of(player.element.getStyle('left')).should_be('75%');
+    value_of( player.moveTo(75) ).should_be(player);
+    value_of( player.x ).should_be(75);
+    value_of( player.element.getStyle('left') ).should_be('75%');
+  },
+  
+  'should never move outside of the viewport': function() {
+    player.moveTo(-1);
+    value_of( player.x ).should_be(0);
+    value_of( player.element.getStyle('left').toInt() ).should_be(0);
+    
+    player.moveTo(101);
+    value_of( player.x ).should_be(100);
+    value_of( player.element.getStyle('left') ).should_be('100%');
   },
   
   'should compensate for the players width when setting its x-position': function() {

@@ -23,9 +23,15 @@ Dodgebomb.Application = new Class({
 	  this.setupViewport();
     this.setupPlayer();
 	},
+  
+  movePlayerViaMouse: function(event) {
+    var percentage = Dodgebomb.Singleton.viewport.getMousePosition(event).xPercentage;
+    Dodgebomb.Singleton.player.moveTo(percentage);
+  },
 	
 	setupPlayer: function() {
     Dodgebomb.Singleton.player = new Dodgebomb.Player();
+    window.addEvent('mousemove', this.movePlayerViaMouse.bindWithEvent(this));
   },
 
   setupViewport: function() {

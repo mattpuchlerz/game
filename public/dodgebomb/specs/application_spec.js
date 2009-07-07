@@ -20,6 +20,10 @@ describe('DodgeBomb.Application', {
     
   'should set up the player': function() {
     value_of(Dodgebomb.Singleton.player).should_not_be_null();
+  },
+  
+  'should move the player when the mouse moves anywhere in the window': function() {
+    // How do I test this!?
   }
     
 });
